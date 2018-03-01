@@ -19,6 +19,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.title = @"HOME PAGE";
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
     person *p = [[person alloc]init];
     
     //KVO的本质是监听一个对象是否调用set方法
@@ -34,6 +37,24 @@
     //
     [p CM_addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
     self.pmodel = p;
+    
+    
+    UIButton *leftbtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 40, self.view.frame.size.height / 2 - 22.5, 80, 45)];
+    [self.view addSubview:leftbtn];
+    [leftbtn addTarget:self action:@selector(RuntimepushBtn :) forControlEvents:UIControlEventTouchUpInside];
+    leftbtn.backgroundColor = [UIColor redColor];
+}
+//通过Runtime跳转  并传值
+-(void)RuntimepushBtn :(UIButton *)button
+{
+    UIViewController* MeetingDetailsView = [[NSClassFromString(@"PushViewController") alloc] init];
+    SEL aSelector = NSSelectorFromString(@"setPerModel:");
+    if ([MeetingDetailsView respondsToSelector:aSelector]) {
+        IMP aIMP = [MeetingDetailsView methodForSelector:aSelector];
+        void (*setter)(id, SEL, person*) = (void(*)(id, SEL, person*))aIMP;
+        setter(MeetingDetailsView, aSelector,_pmodel);
+    }
+    [self.navigationController pushViewController:MeetingDetailsView animated:YES];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

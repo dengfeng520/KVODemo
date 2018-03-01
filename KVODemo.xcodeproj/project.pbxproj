@@ -13,6 +13,7 @@
 		1C23B7C9204402BC00B14977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C23B7C8204402BC00B14977 /* Assets.xcassets */; };
 		1C23B7CC204402BC00B14977 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C23B7CA204402BC00B14977 /* LaunchScreen.storyboard */; };
 		1C23B7CF204402BC00B14977 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C23B7CE204402BC00B14977 /* main.m */; };
+		1C2D50282047E06800FD3CCD /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D50272047E06800FD3CCD /* PushViewController.m */; };
 		1CDBD5FB20465BCE00BD4457 /* person.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDBD5FA20465BCE00BD4457 /* person.m */; };
 		1CDBD5FE20465C0B00BD4457 /* NSObject+CM_KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDBD5FD20465C0B00BD4457 /* NSObject+CM_KVO.m */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,8 @@
 		1C23B7DA204402BC00B14977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C23B7E3204402BC00B14977 /* KVODemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVODemoUITests.m; sourceTree = "<group>"; };
 		1C23B7E5204402BC00B14977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C2D50262047E06800FD3CCD /* PushViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
+		1C2D50272047E06800FD3CCD /* PushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushViewController.m; sourceTree = "<group>"; };
 		1CDBD5F920465BCE00BD4457 /* person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = person.h; sourceTree = "<group>"; };
 		1CDBD5FA20465BCE00BD4457 /* person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = person.m; sourceTree = "<group>"; };
 		1CDBD5FC20465C0B00BD4457 /* NSObject+CM_KVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+CM_KVO.h"; sourceTree = "<group>"; };
@@ -78,6 +81,8 @@
 				1CDBD5FD20465C0B00BD4457 /* NSObject+CM_KVO.m */,
 				1CDBD5F920465BCE00BD4457 /* person.h */,
 				1CDBD5FA20465BCE00BD4457 /* person.m */,
+				1C2D50262047E06800FD3CCD /* PushViewController.h */,
+				1C2D50272047E06800FD3CCD /* PushViewController.m */,
 				1C23B7C5204402BC00B14977 /* Main.storyboard */,
 				1C23B7C8204402BC00B14977 /* Assets.xcassets */,
 				1C23B7CA204402BC00B14977 /* LaunchScreen.storyboard */,
@@ -178,6 +183,7 @@
 			files = (
 				1C23B7C4204402BC00B14977 /* ViewController.m in Sources */,
 				1CDBD5FE20465C0B00BD4457 /* NSObject+CM_KVO.m in Sources */,
+				1C2D50282047E06800FD3CCD /* PushViewController.m in Sources */,
 				1C23B7CF204402BC00B14977 /* main.m in Sources */,
 				1CDBD5FB20465BCE00BD4457 /* person.m in Sources */,
 				1C23B7C1204402BC00B14977 /* AppDelegate.m in Sources */,

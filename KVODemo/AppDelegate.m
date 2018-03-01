@@ -17,6 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    UIViewController * HomePage = [[NSClassFromString(@"ViewController") alloc]init];
+    UINavigationController *HomeNav = [[UINavigationController alloc]initWithRootViewController:HomePage];
+   self.window.rootViewController = HomeNav;
+   [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
