@@ -8,9 +8,14 @@
 
 #import "person.h"
 
+
+
 @implementation person
 
 -(void)setName:(NSString *)name{
     _name=[NSString stringWithFormat:@"%@ MMP",name];
 }
 @end
+
+
+
