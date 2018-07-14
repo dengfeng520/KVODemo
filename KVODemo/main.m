@@ -23,9 +23,14 @@ int main(int argc, char * argv[]) {
         //==============================
         Class personclass = [NSClassFromString(@"testclass") class];
          //调用类方法 并传值
-        [personclass performSelector:@selector(testclassobject:) withObject:@"the calss object"];
+//        [personclass performSelector:@selector(testclassobject:) withObject:@"the calss object"];
         //
-        [personclass performSelector:@selector(testclasspopobject)];
+        [personclass performSelector:@selector(testclassobject:secondNumber:) withObject:@"the data" withObject:@"1008611"];
+
+//        if([personclass performSelector:@selector(testclassobject:secondNumber:)])
+//        {
+        
+//        }
         
         
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
@@ -46,9 +51,9 @@ int main(int argc, char * argv[]) {
     NSLog(@"\ntestchar=============%@",testchar);
 }
 
-+(void)testclassobject:(NSString *)objectchar
++(void)testclassobject:(NSString *)objectchar secondNumber:(NSString *)secondNumber
 {
-    NSLog(@"\nobjectchar==============%@",objectchar);
+    NSLog(@"\nobjectchar==============%@,%@",objectchar,secondNumber);
 }
 
 +(void)testclasspopobject

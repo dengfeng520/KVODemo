@@ -10,7 +10,11 @@
 #import "person.h"
 #import "NSObject+CM_KVO.h"
 @interface ViewController ()
+///
 @property (strong, nonatomic) person *pmodel;
+///
+@property (strong, nonatomic) UIButton *leftbtn;
+
 @end
 
 @implementation ViewController
@@ -39,14 +43,18 @@
     self.pmodel = p;
     
     
-    UIButton *leftbtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 40, self.view.frame.size.height / 2 - 22.5, 80, 45)];
-    [self.view addSubview:leftbtn];
-    [leftbtn addTarget:self action:@selector(RuntimepushBtn :) forControlEvents:UIControlEventTouchUpInside];
-    leftbtn.backgroundColor = [UIColor redColor];
+    _leftbtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 40, self.view.frame.size.height / 2 - 22.5, 80, 45)];
+    [self.view addSubview:_leftbtn];
+    [_leftbtn addTarget:self action:@selector(RuntimepushBtn :) forControlEvents:UIControlEventTouchUpInside];
+    _leftbtn.backgroundColor = [UIColor redColor];
 }
 //通过Runtime跳转  并传值
--(void)RuntimepushBtn :(UIButton *)button
+-(void)RuntimepushBtn:(UIButton *)button
 {
+    _leftbtn.enabled = NO;
+    //防止按钮被重复点击
+    [self performSelector:@selector(touchchangestatus) withObject:nil afterDelay:1.f];
+    
     UIViewController* MeetingDetailsView = [[NSClassFromString(@"PushViewController") alloc] init];
     SEL aSelector = NSSelectorFromString(@"setPerModel:");
     if ([MeetingDetailsView respondsToSelector:aSelector]) {
@@ -55,6 +63,12 @@
         setter(MeetingDetailsView, aSelector,_pmodel);
     }
     [self.navigationController pushViewController:MeetingDetailsView animated:YES];
+}
+
+// MARK: 修改按钮状态防止重复点击
+-(void)touchchangestatus
+{
+    _leftbtn.enabled = YES;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
