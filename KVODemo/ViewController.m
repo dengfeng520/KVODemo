@@ -51,6 +51,9 @@
 //通过Runtime跳转  并传值
 -(void)RuntimepushBtn:(UIButton *)button
 {
+//    [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(buttonClick:) object:button];
+//    [self performSelector:@selector(buttonClick:) withObject:button afterDelay:1.f];
+
     _leftbtn.enabled = NO;
     //防止按钮被重复点击
     [self performSelector:@selector(touchchangestatus) withObject:nil afterDelay:1.f];
