@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import <objc/message.h>
+#import <objc/runtime.h>
 
 @class testclass;
 
@@ -21,8 +22,11 @@ int main(int argc, char * argv[]) {
         objc_msgSend(test,@selector(setTestchar:),@"data");
         //==============================
         Class personclass = [NSClassFromString(@"testclass") class];
-         //调用类方法
+         //调用类方法 并传值
         [personclass performSelector:@selector(testclassobject:) withObject:@"the calss object"];
+        //
+        [personclass performSelector:@selector(testclasspopobject)];
+        
         
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
@@ -45,6 +49,12 @@ int main(int argc, char * argv[]) {
 +(void)testclassobject:(NSString *)objectchar
 {
     NSLog(@"\nobjectchar==============%@",objectchar);
+}
+
++(void)testclasspopobject
+{
+    printf("\n===============testclasspopobject");
+
 }
 
 @end

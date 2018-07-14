@@ -39,7 +39,7 @@ void setName(id self, SEL _cmd, NSString *str){
     //调用父类set方法
     objc_msgSend(self, @selector(setName:),str);
     //拿到观察者
-    id objc=objc_getAssociatedObject(self, @"objc");
+    id objc = objc_getAssociatedObject(self, @"objc");
     //通知观察者
     objc_msgSend(objc, @selector(observeValueForKeyPath:ofObject:change:context:),self,@"name",nil,nil);
     //修改回子类类型
