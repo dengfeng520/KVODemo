@@ -20,6 +20,17 @@
     
     self.title = @"push view";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    person *p = [[person alloc]init];
+    p.name = @"TEST NAME";
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    static int i = 0;
+    i++;
+    person *p = [[person alloc]init];
+    p.name = [NSString stringWithFormat:@"TEST NAME %d",i];
 }
 
 - (void)didReceiveMemoryWarning {

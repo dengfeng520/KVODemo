@@ -12,6 +12,22 @@
 
 @implementation person
 
+-(instancetype)init
+{
+    self = [super init];
+    if(self)
+    {
+        [self addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+
+    }
+    return self;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    NSLog(@"%@",self.name);
+}
+
 -(void)setName:(NSString *)name{
     _name=[NSString stringWithFormat:@"%@ MMP",name];
 }
